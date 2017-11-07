@@ -7,7 +7,6 @@ from torchvision.models.inception import inception_v3
 
 import numpy as np
 from scipy.stats import entropy
-import IPython as ipy
 
 def inception_score(imgs, cuda=True, batch_size=32, resize=False):
     """Computes the inception score of the generated images imgs
