@@ -15,7 +15,7 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False):
     cuda -- whether or not to run on GPU
     batch_size -- batch size to feed into inception
     """
-    assert batch_size > 0
+    assert batch_size > 1
 
     if cuda:
         dtype = torch.cuda.FloatTensor # Uncomment this to run on GPU
