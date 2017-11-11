@@ -51,10 +51,11 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False):
         preds[start_batch:end_batch, :] = p_out.data.cpu().numpy()
 
     # Now compute the entropy
-    py = np.sum(preds, axis=0)
+    py = np.mean(preds, axis=0)
+    py /= np.sum(py)
     scores = []
     for i in range(preds.shape[0]):
-        pyx = preds[i, :]
+        pyx = preds[i, :] / np.sum(preds[i, :])
         scores.append(entropy(pyx, py))
 
     return np.exp(np.mean(scores))
