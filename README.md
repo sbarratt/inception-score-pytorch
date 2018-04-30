@@ -1,6 +1,7 @@
 # Inception Score Pytorch
 
 Pytorch was lacking code to calculate the Inception Score for GANs. This repository fills this gap.
+However, we do not recommend using the Inception Score to evaluate generative models, see [our note](https://arxiv.org/abs/1801.01973) for more why.
 
 ## Getting Started
 
