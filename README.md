@@ -16,15 +16,15 @@ To generate random 64x64 images and calculate the inception score, do the follow
 $ python inception_score.py
 ```
 
-The only function is `inception_score`. It takes a list of numpy images normalized to the range [0,1] and a set of arguments and then calculates the inception score. Please assure your images are 299x299x3 and if not (e.g. your GAN was trained on CIFAR), pass `resize=True` to the function to have it automatically resize using bilinear interpolation before passing the images to the inception network.
+The only function is `inception_score`. It takes a list of numpy images normalized to the range [0,1] and a set of arguments and then calculates the inception score. Please assure your images are 3x299x299 and if not (e.g. your GAN was trained on CIFAR), pass `resize=True` to the function to have it automatically resize using bilinear interpolation before passing the images to the inception network.
 
 ```python
-def inception_score(imgs, cuda=True, batch_size=32, resize=False):
+def inception_score(imgs, cuda=True, batch_size=32, resize=False, splits=1):
     """Computes the inception score of the generated images imgs
-
-    imgs -- list of (HxWx3) numpy images normalized in the range [0,1]
+    imgs -- Torch dataset of (3xHxW) numpy images normalized in the range [-1, 1]
     cuda -- whether or not to run on GPU
-    batch_size -- batch size to feed into inception
+    batch_size -- batch size for feeding into Inception v3
+    splits -- number of splits
     """
 ```
 
